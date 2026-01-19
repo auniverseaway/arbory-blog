@@ -1,10 +1,11 @@
-import { getConfig, loadBlock } from '../../scripts/ak.js';
+import { getConfig, loadBlock, localizeUrl } from '../../scripts/ak.js';
 import { createPicture } from '../../scripts/utils/picture.js';
 
-const { codeBase, log } = getConfig();
+const config = getConfig();
+const { codeBase, log } = config;
 
 const INDEX_NAME = 'query-index.json?limit=5000';
-const ARTICLES_PATH = `${codeBase}/blog/${INDEX_NAME}`;
+const ARTICLES_PATH = `${codeBase}/en/${INDEX_NAME}`;
 
 const pageName = window.location.pathname.split('/').pop();
 
@@ -123,6 +124,10 @@ async function getElementList(list) {
 }
 
 async function getBaseList() {
+  const url = new URL(ARTICLES_PATH);
+  const localized = localizeUrl({ config, url });
+  console.log(localized);
+
   const resp = await fetch(ARTICLES_PATH);
   if (!resp.ok) {
     log(`Could not get ${ARTICLES_PATH}. Error: ${resp.status}`);

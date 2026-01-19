@@ -127,6 +127,15 @@
   --color-accent: light-dark(var(--color-magenta-600), var(--color-magenta-500));
   --color-shaded: light-dark(#f9f9f9, #111);
 
+  /* Arbory Import */
+  --link-color: #62a814;
+  --link-hover-color: #406e0c;
+  --background-color: #272B36;
+  --background-color-2: #191b22;
+  --overlay-background-color: #272B36;
+  --highlight-background-color: #232323;
+  --text-color: #FFFFFF;
+
   /* fonts */
   --font-family: montserrat, "Trebuchet MS", sans-serif;
 
@@ -150,7 +159,7 @@
   --body-line-height: 1.6;
 
   /* misc */
-  --header-height: 64px;
+  --header-height: 74px;
   --breadcrumb-height: 24px;
 }
 
@@ -168,7 +177,7 @@ html {
 
 body {
   margin: 0;
-  background-color: light-dark(var(--color-light), var(--color-dark));
+  background-color: light-dark(var(--color-light), var(--background-color));
   color: var(--color-text);
   font-family: var(--font-family);
   font-size: var(--body-font-size-m);

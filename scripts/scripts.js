@@ -1,15 +1,17 @@
 import { loadArea, setConfig } from './ak.js';
 
-const hostnames = ['authorkit.dev'];
+const hostnames = ['blog.arborydigital.com'];
 
 const locales = {
-  '': { lang: 'en' },
+  '/en': { lang: 'en' },
   '/de': { lang: 'de' },
   '/es': { lang: 'es' },
   '/fr': { lang: 'fr' },
-  '/hi': { lang: 'hi' },
+  '/it': { lang: 'it' },
   '/ja': { lang: 'ja' },
-  '/zh': { lang: 'zh' },
+  '/ko': { lang: 'ko' },
+  '/zh-cn': { lang: 'zh-CN' },
+  '/zh-tw': { lang: 'zh-TW' },
 };
 
 // Widget patterns to look for
@@ -37,6 +39,8 @@ const decorateArea = ({ area = document }) => {
 };
 
 async function loadPage() {
+  document.body.classList.add('dark-scheme');
+
   setConfig({ hostnames, locales, widgets, components, decorateArea });
   await loadArea();
 }
